@@ -30,11 +30,16 @@ def fetch_and_publish_movies():
                 break
             
             for movie in movies:
-                # Extract specific columns: genre_ids, popularity, title
+                # Extract specific columns: genre_ids, overview, popularity, title
                 data_to_send = {
                     'genre_ids': movie['genre_ids'],
+                    'original_language' : movie['original_language'],
+                    'overview' : movie['overview'],
                     'popularity': movie['popularity'],
-                    'title': movie['title']
+                    'release_date' : movie['release_date'],
+                    'title': movie['title'],
+                    'vote_average' : movie['vote_average'],
+                    'vote_count' : movie['vote_count']
                 }
 
                 # Produce specific movie data to Kafka topic
